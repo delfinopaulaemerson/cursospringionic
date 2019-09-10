@@ -1,12 +1,21 @@
 <ion-header>
-    <ion-nav-pop>
-      <ion-icon name="menu"></ion-icon>
-      <ion-title style="text-align: center">
-        categorias
-      </ion-title>
-      </ion-nav-pop>
-  
-  </ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+          Categorias
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
 <ion-content>
-<p>pagina de categorias</p>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+    <ion-avatar>
+      <ion-img src="/assets/icon/btlogo.jpg"></ion-img>
+    </ion-avatar>
+      <p>{{item.nome}}</p>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

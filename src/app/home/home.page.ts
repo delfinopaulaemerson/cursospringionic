@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -8,6 +10,13 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  /**
+   * login
+   */
+  public login() {
+    this.router.navigate(['/categorias']);
+  }
 
 }

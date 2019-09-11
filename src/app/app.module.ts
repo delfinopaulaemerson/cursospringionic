@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
@@ -10,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {CategoriaService} from '../services/domain/categoria.service';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +28,7 @@ import {CategoriaService} from '../services/domain/categoria.service';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    CategoriaService
+    CategoriaService,AuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,11 @@
-import { CredenciaisDTO } from './../../models/credenciais.dto';
-import { Component } from '@angular/core';
+
+import { AuthService } from './../../services/auth.service';
+
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
+import { CredenciaisDTO } from 'src/models/credenciais.dto';
+
 
 
 
@@ -14,15 +18,31 @@ export class HomePage {
 
   email : string = '';
   senha : string = '';
-  constructor(private router: Router, public menu : MenuController) {}
+  creds : CredenciaisDTO = {
+    email: "",
+    senha: ""
+  };
+
+  constructor(private router: Router, public menu : MenuController, public auth: AuthService) {}
+
+
+  ngOnInit() {
+     
+    }
 
   /**
    * login
    */
   public login() {
-    console.log(this.email);
-    console.log(this.senha);
-    this.router.navigate(['/categorias']);
+    console.log(this.creds.email);
+    console.log(this.creds.senha);
+    this.auth.authenticate(this.creds)
+    .subscribe(response =>{
+      console.log(response.headers.get('Authorization'));
+      this.router.navigate(['/categorias']);
+    },
+    error =>{});
+    
   }
 
   /**

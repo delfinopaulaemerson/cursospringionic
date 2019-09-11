@@ -4,13 +4,11 @@
         <img src="/assets/icon/batman.png" style="width: 92px;margin-left: 40px;" alt="" />
       </ion-card-header>
     <form>
-      <ion-item> 
-        <ion-label stacked >Email:</ion-label>
-        <ion-input [(ngModel)]='email' name="email"  type="text"></ion-input>
+      <ion-item>
+        <ion-input placeholder="email" [(ngModel)]='creds.email' name="email"  type="text"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label stacked>Password:</ion-label>
-          <ion-input [(ngModel)]='senha' name="senha"  type="Password"></ion-input>
+          <ion-input placeholder="senha" [(ngModel)]='creds.senha' name="senha"  type="Password"></ion-input>
       </ion-item>
       <ion-button  (click)="login()" style="margin-left: 50px;">Entrar</ion-button>
     </form>

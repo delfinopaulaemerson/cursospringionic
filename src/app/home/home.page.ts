@@ -1,3 +1,4 @@
+import { CredenciaisDTO } from './../../models/credenciais.dto';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
@@ -11,12 +12,16 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage {
 
+  email : string = '';
+  senha : string = '';
   constructor(private router: Router, public menu : MenuController) {}
 
   /**
    * login
    */
   public login() {
+    console.log(this.email);
+    console.log(this.senha);
     this.router.navigate(['/categorias']);
   }
 

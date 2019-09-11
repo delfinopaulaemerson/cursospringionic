@@ -12,16 +12,21 @@ import { Router } from '@angular/router';
 export class CategoriasPage implements OnInit {
 
   items : CategoriaDTO[];
-
+  
   constructor(private router : Router, public categoriaService: CategoriaService) { }
 
   ngOnInit() {
-    this.categoriaService.findAll().subscribe((data) =>{
-      this.items = data;
-    },
-      error =>{
-        console.log(error);
-    });
+    try {
+      this.categoriaService.findAll().subscribe((data) =>{
+        this.items = data;
+      },
+        error =>{
+          console.log(error);
+          throw error;
+      });
+    } catch (error) {
+      throw error;
+    }
   }
    
  

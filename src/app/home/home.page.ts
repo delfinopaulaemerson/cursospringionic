@@ -38,6 +38,7 @@ export class HomePage {
     console.log(this.creds.senha);
     this.auth.authenticate(this.creds)
     .subscribe(response =>{
+      this.auth.sucessFullLogin(response.headers.get('Authorization'));
       console.log(response.headers.get('Authorization'));
       this.router.navigate(['/categorias']);
     },
